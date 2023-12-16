@@ -3,16 +3,20 @@
 
 {% block contenido %}
     <h2>Aca van las Publicaciones</h2>
-
-    <div class="card">
+      
+      {% for publicacion in publicaciones %}
+      <div class="card">
         <div class="card-header">
-          16/12/2023
+          {{publicacion.fecha}}
         </div>
         <div class="card-body">
-          <h5 class="card-title">Publicacion 1</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <h5 class="card-title">{{publicacion.titulo}}</h5>
+          <p class="card-text">{{publicacion.cuerpo}}</p>
           <a href="#" class="btn btn-primary">Ver mas...</a>
         </div>
       </div>
+      {% endfor %}
+        
+    
 {% endblock contenido %}
     
