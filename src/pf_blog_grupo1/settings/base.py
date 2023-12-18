@@ -28,7 +28,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'publicaciones',
+<<<<<<< HEAD
     'usuarios'
+=======
+>>>>>>> 8b6a8cb49538da533648fbb51d8e4e1cf36bb192
 ]
 
 MIDDLEWARE = [
@@ -62,6 +65,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'pf_blog_grupo1.wsgi.application'
 
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 8b6a8cb49538da533648fbb51d8e4e1cf36bb192
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
