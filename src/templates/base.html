@@ -24,7 +24,16 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'publicaciones' %}">Publicaciones</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Contactos</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>
+                        {% if user.is_authenticated %}
+                        <a href="">{{user.first_name}}</a>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a></li>
+                        {% endif %}
+                        <li>
+                            <form method="post" action="{% url 'logout' %}">{% csrf_token %}
+                                <button class="button primary" type="submit">Cerrar sesión</button>
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </div>

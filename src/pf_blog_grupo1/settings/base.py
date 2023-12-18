@@ -1,11 +1,10 @@
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
+# Defino nuevo modelo de usuario
+AUTH_USER_MODEL = 'usuarios.Usuario'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-!#*w+$yy-)3q7yn65eaex@ul#ikmy$6=sjau6$n@dvwzp&aoh3'
@@ -15,6 +14,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Variables relacionadas al login
+LOGIN_URL = 'usuarios/login'
+LOGIN_REDIRECT_URL = '/publicaciones/ver-publicaciones'
 
 # Application definition
 
@@ -25,6 +27,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'publicaciones',
+    'usuarios'
 ]
 
 MIDDLEWARE = [
@@ -56,17 +60,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'pf_blog_grupo1.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 
 # Password validation
