@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+
+{% block contenido %}
+    <form method="post"> {% csrf_token %}
+        {{form}}
+        <button type="submit">Editar comentario</button>
+    </form>
+{% endblock contenido %}
+    

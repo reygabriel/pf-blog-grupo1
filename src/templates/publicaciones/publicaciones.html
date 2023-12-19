@@ -3,7 +3,11 @@
 
 {% block contenido %}
     <h2>Publicaciones</h2>
+    
+    {% if user.es_colaborador or user.is_superuser %}
     <a href="{% url 'publicar' %}" class="button">Nueva Publicacion</a>  
+    {% endif %} 
+    
       {% for publicacion in publicaciones %}
       <div class="card">
         <div class="card-header">
