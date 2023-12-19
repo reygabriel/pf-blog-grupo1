@@ -2,10 +2,10 @@ from django.forms.models import BaseModelForm
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Publicacion
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from django.urls import reverse 
 
-from .forms import PublicarForm
+from .forms import PublicarForm, ComentarioForm
 
 class PublicacionesView(ListView):
     template_name = 'publicaciones/publicaciones.html'
@@ -37,3 +37,27 @@ class EliminarPublicacionView(DeleteView):
     template_name='publicaciones/eliminar-publicacion.html'
     success_url = '../ver-publicaciones'
 
+#Views para ver mas el detalle de una publicacion
+class DetallePublicacion(DetailView):
+        model=Publicacion
+        template_name='publicaciones/detalle.html'
+        context_objet_name = 'publicacion'
+
+        def get_context_data(self, **kwargs):
+            context = super().get_context_data(**kwargs)
+            context ['form'] = ComentarioForm()
+            return context
+        
+
+        def post(self, request, *args, **kwargs):
+             publicacion = self.get_object()
+             form = ComentarioForm(request.POST)
+
+             if form.is_valid():
+                  comentario = form.save(commit=False)
+                  comentario.creador_id = self.request.user.id
+                  comentario.publicacion = publicacion
+                  comentario.save()
+                  return super().get(request)
+             else:
+                  return super().get(request)

@@ -19,7 +19,7 @@
         <div class="card-body">
           <h5 class="card-title">{{publicacion.titulo}}</h5>
           <p class="card-text">{{publicacion.cuerpo}}</p>
-          <a href="#" class="btn btn-primary">Ver mas...</a>
+          <a href="{% url 'detalle-publicacion' publicacion.id %}" class="button">Ver mas</a>
         </div>
       </div>
       {% endfor %}
