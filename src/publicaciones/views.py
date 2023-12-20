@@ -31,7 +31,21 @@ class PublicacionesView(ListView):
         if categoria_seleccionada:
             queryset = queryset.filter(categoria = categoria_seleccionada)
             
+        
+    #Orden
+        orden = self.request.GET.get('orderby')
+        if orden:
+            if queryset == 'fecha_asc':
+                queryset = queryset.order_by('fecha')
+            elif queryset == 'fecha_desc':
+                queryset = queryset.order_by('-fecha')
+            elif queryset == 'alf_asc':
+                queryset = queryset.order_by('titulo')
+            elif queryset == 'alf_desc':
+                queryset = queryset.order_by('-titulo')
+        
         return queryset
+ 
 
 #Clase para crear una piblicacion
 class Publicar(LoginRequiredMixin, ColaboradorMixin, CreateView):

@@ -3,7 +3,7 @@
 
 {% block contenido %}
     <h2>Publicaciones</h2>
-
+<!--Filtro por Categoria-->
     <form method="get">
       <select name="categoria" id="">
         <option value="">Todas</option>
@@ -14,9 +14,19 @@
         {% endfor %}
           
       </select>
-      <button type="submit">Filtrar
-      </button>
-    </form> 
+
+    <!--Ordenar -->
+      <select name="orderby" id="">
+        <option value="">Ordenar por</option>
+        <option value="fecha_asc">Ordenar por fecha ascendente</option>
+        <option value="fecha_desc">Ordenar por fecha descendente</option>
+        <option value="alf_asc">Ordenar Alfabeticamente ascendente</option>
+        <option value="alf_desc">Ordenar Alfabeticamente descendente</option>
+      </select>
+
+      <button type="submit">Filtrar</button>
+    
+    </form>
     {% if user.es_colaborador or user.is_superuser %}
     <a href="{% url 'publicar' %}" class="button">Nueva Publicacion</a>  
     {% endif %} 
