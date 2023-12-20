@@ -1,7 +1,8 @@
+from typing import Any
 from django.forms.models import BaseModelForm
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from .models import Publicacion, Comentario
+from .models import Publicacion, Comentario, Categoria
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -13,6 +14,12 @@ class PublicacionesView(ListView):
     template_name = 'publicaciones/publicaciones.html'
     model = Publicacion
     context_object_name = 'publicaciones'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categorias'] = Categoria.objects.all()
+        return context
+    
 
 #Clase para crear una piblicacion
 class Publicar(LoginRequiredMixin, ColaboradorMixin, CreateView):

@@ -3,6 +3,18 @@
 
 {% block contenido %}
     <h2>Publicaciones</h2>
+
+    <form method="get">
+      <select name="categorias" id="">
+        <option value="Todas"></option>
+        
+        {% for categoria in categorias  %}
+        <option value="">{{categoria.nombre}}</option>
+          
+        {% endfor %}
+          
+      </select>
+    </form>
     
     {% if user.es_colaborador or user.is_superuser %}
     <a href="{% url 'publicar' %}" class="button">Nueva Publicacion</a>  
@@ -23,6 +35,7 @@
         <div class="card-body">
           <h5 class="card-title">{{publicacion.titulo}}</h5>
           <p class="card-text">{{publicacion.cuerpo}}</p>
+          <p class="card-text"><i class="fa-solid fa-tag"></i>{{publicacion.categoria}}</p>
           <a href="{% url 'detalle-publicacion' publicacion.id %}" class="button">Ver mas</a>
         </div>
       </div>
