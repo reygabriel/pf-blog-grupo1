@@ -5,7 +5,14 @@
  <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
       <div class="col-md-4">
-        <img src="{% static 'images/juego.jpg' %}" class="img-fluid rounded-start" alt="...">
+        
+        {% if publicacion.imagen %}
+        <img src="{{ publicacion.imagen.url }}" class="img-fluid rounded-start" alt="...">
+        {% else %}  
+        <img src="{% static 'images/sinimagen.jpg' %}" class="img-fluid rounded-start" alt="...">
+        {% endif %}
+           
+        
       </div>
       <div class="col-md-8">
         <div class="card-body">
