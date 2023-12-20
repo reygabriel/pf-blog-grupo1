@@ -35,13 +35,13 @@ class PublicacionesView(ListView):
     #Orden
         orden = self.request.GET.get('orderby')
         if orden:
-            if queryset == 'fecha_asc':
+            if orden == 'fecha_asc':
                 queryset = queryset.order_by('fecha')
-            elif queryset == 'fecha_desc':
+            elif orden == 'fecha_desc':
                 queryset = queryset.order_by('-fecha')
-            elif queryset == 'alf_asc':
-                queryset = queryset.order_by('titulo')
-            elif queryset == 'alf_desc':
+            elif orden == 'alf_asc':
+                orden = queryset.order_by('titulo')
+            elif orden == 'alf_desc':
                 queryset = queryset.order_by('-titulo')
         
         return queryset
