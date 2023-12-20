@@ -5,17 +5,18 @@
     <h2>Publicaciones</h2>
 
     <form method="get">
-      <select name="categorias" id="">
-        <option value="Todas"></option>
+      <select name="categoria" id="">
+        <option value="">Todas</option>
         
         {% for categoria in categorias  %}
-        <option value="">{{categoria.nombre}}</option>
+        <option value="{{categoria.id}}">{{categoria.nombre}}</option>
           
         {% endfor %}
           
       </select>
-    </form>
-    
+      <button type="submit">Filtrar
+      </button>
+    </form> 
     {% if user.es_colaborador or user.is_superuser %}
     <a href="{% url 'publicar' %}" class="button">Nueva Publicacion</a>  
     {% endif %} 

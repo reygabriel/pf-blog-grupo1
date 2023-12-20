@@ -1,4 +1,5 @@
 from typing import Any
+from django.db.models.query import QuerySet
 from django.forms.models import BaseModelForm
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -15,11 +16,22 @@ class PublicacionesView(ListView):
     model = Publicacion
     context_object_name = 'publicaciones'
 
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categorias'] = Categoria.objects.all()
         return context
     
+    
+    def get_queryset(self):
+        queryset = super().get_queryset()
+
+        categoria_seleccionada = self.request.GET.get('categoria')
+
+        if categoria_seleccionada:
+            queryset = queryset.filter(categoria = categoria_seleccionada)
+            
+        return queryset
 
 #Clase para crear una piblicacion
 class Publicar(LoginRequiredMixin, ColaboradorMixin, CreateView):
