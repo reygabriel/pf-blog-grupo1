@@ -2,55 +2,50 @@
 
 
 {% block contenido %}
-    <h2>Publicaciones</h2>
+  <h2>Publicaciones</h2>
 <!--Filtro por Categoria-->
-    <form method="get">
-      <select name="categoria" id="">
-        <option value="">Todas</option>
-        
-        {% for categoria in categorias  %}
+  <form method="get">
+    <select name="categoria" id="">
+      <option value="">Todas</option>
+      {% for categoria in categorias  %}
         <option value="{{categoria.id}}">{{categoria.nombre}}</option>
-          
-        {% endfor %}
-          
-      </select>
+      {% endfor %}
+    </select>
 
-    <!--Ordenar -->
-      <select name="orderby" id="">
-        <option value="">Ordenar por</option>
-        <option value="fecha_asc">Ordenar por fecha ascendente</option>
-        <option value="fecha_desc">Ordenar por fecha descendente</option>
-        <option value="alf_asc">Ordenar Alfabeticamente ascendente</option>
-        <option value="alf_desc">Ordenar Alfabeticamente descendente</option>
-      </select>
+<!--Ordenar -->
+  <select name="orderby" id="">
+    <option value="">Ordenar por</option>
+    <option value="fecha_asc">Ordenar por fecha ascendente</option>
+    <option value="fecha_desc">Ordenar por fecha descendente</option>
+    <option value="alf_asc">Ordenar Alfabeticamente ascendente</option>
+    <option value="alf_desc">Ordenar Alfabeticamente descendente</option>
+  </select>
 
-      <button type="submit">Filtrar</button>
+  <button type="submit">Filtrar</button>
     
-    </form>
-    {% if user.es_colaborador or user.is_superuser %}
-    <a href="{% url 'publicar' %}" class="button">Nueva Publicacion</a>  
-    {% endif %} 
-    
-      {% for publicacion in publicaciones %}
-      <div class="card">
-        <div class="card-header">
-          {{publicacion.fecha}} - <strong>#{{publicacion.creador}}</strong>
-
+  </form>
+  {% if user.es_colaborador or user.is_superuser %}
+  <a href="{% url 'publicar' %}" class="btn btn-primary">Nueva Publicacion</a>  
+  {% endif %} 
+<!--Aquí se renderizan las publicaciones-->    
+  {% for publicacion in publicaciones %}
+  <div class="col-lg-6">
+    <div class="card mb-4">
+      <a href="#!"><img class="card-img-top" src="{{publicacion.imagen.url}}" alt="..." /></a>
+      <div class="card-body">
+        <div class="small text-muted">{{publicacion.fecha}} - <strong>@{{publicacion.creador}}</strong>
           <span>
             <a href="{% url 'eliminar-publicacion' publicacion.id %}"><i class="fa-solid fa-trash"></i></a>
-            
             <a href="{% url 'modificar-publicacion' publicacion.id %}"><i class="fa-solid fa-file-pen"></i></a>
-
           </span>
         </div>
-        <div class="card-body">
-          <h5 class="card-title">{{publicacion.titulo}}</h5>
-          <p class="card-text">{{publicacion.cuerpo}}</p>
-          <p class="card-text"><i class="fa-solid fa-tag"></i>{{publicacion.categoria}}</p>
-          <a href="{% url 'detalle-publicacion' publicacion.id %}" class="button">Ver mas</a>
-        </div>
+        <h2 class="card-title h4">{{publicacion.titulo}}</h2>
+        <p class="card-text">{{publicacion.cuerpo}}</p>
+        <p class="card-title h6"><i class="fa-solid fa-tag"></i>{{publicacion.categoria}}</p>
+        <a class="btn btn-primary" href="{% url 'detalle-publicacion' publicacion.id %}">Seguir leyendo →</a>
       </div>
-      {% endfor %}
-        
-    
+    </div>
+  </div>
+  {% endfor %}
+
 {% endblock contenido %}

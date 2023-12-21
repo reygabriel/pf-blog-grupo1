@@ -4,7 +4,7 @@
 {% block contenido %}
     <form method="post"> {% csrf_token %}
         {{form.as_p}}
-        <button type="submit" style="margin-top: 10px;">Iniciar sesión</button>
+        <button class="btn btn-primary" type="submit" style="margin-top: 10px;">Iniciar sesión</button>
         <a href="{% url 'registrarse' %}">No tienes cuenta? Create una.</a>
     </form>
 {% endblock contenido %}

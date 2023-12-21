@@ -1,7 +1,8 @@
 from django.shortcuts import render
 
-#Vsta basada en Funciones
+#Vista basada en Funciones
 def index_view(request):
     return render(request,'index.html', {})
 
-
+def contacto_view(request):
+    return render(request, 'contacto.html', {})
