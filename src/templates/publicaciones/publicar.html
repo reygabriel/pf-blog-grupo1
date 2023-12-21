@@ -4,8 +4,8 @@
 {% block contenido %}
     <h3>Publicar</h3>
     <form method="post" enctype="multipart/form-data"> {% csrf_token %}
-        {{form}}
-        <button type="submit"> Publicar</button>
+        {{form.as_p}}
+        <button type="submit">Publicar</button>
     </form>
 {% endblock contenido %}
     

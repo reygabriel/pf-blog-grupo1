@@ -26,17 +26,31 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'publicaciones' %}">Publicaciones</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'publicar' %}">Publicar</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Contactos</a></li>
-                        {% if user.is_authenticated %}
-                        <a href="">{{user.first_name}}</a>
-                        {% else %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a></li>
-                        {% endif %}
-                        <li>
-                            <form method="post" action="{% url 'logout' %}">{% csrf_token %}
-                                <button class="button primary" type="submit">Cerrar sesión</button>
-                            </form>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" 
+                        href="#!">Contactos</a></li>
+                       
+
+                        <span>
+                            {% if user.is_authenticated %}
+                            <li class="nav-item"><a class="nav-link" href="{% url 'mi-perfil' %}">Mi Perfil</a></li>
+                            
+                            {% if user.imagen_perfil %}
+                            <img src="{{user.imagen_perfil.url}}" alt="Imagen de Perfil" style="height: 40px; width: 40px; border-radius: 200px;">
+                            {% else %}
+                            <img src="{% static 'images/sinavatar.jpg'%}" alt="Imagen de perfil" style="height: 40px; width: 40px; border-radius: 200px;">
+                            {% endif %}                             
+                            <a href="">{{user.first_name}}</a>
+                            <li>
+                                <form method="post" action="{% url 'logout' %}">{% csrf_token %}
+                                    <button class="button primary" type="submit">Cerrar sesión</button>
+                                </form>
+                                </li>
+                            {% else %}
+                            <a href="{% url 'login' %}">Iniciar sesión</a>
+                            {% endif %}                      
+                            
+                            
+                        </span>
                     </ul>
                 </div>
             </div>
