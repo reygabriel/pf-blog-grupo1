@@ -8,8 +8,34 @@
     <div class="container">
         <div class="text-center my-5">
             <img src="{% static 'images/juegos-en-linea3.jpeg'%}" alt="" width="600" >
-            <h1 class="fw-bolder">Bienvenidos a Nuestro Blog de VideosJuegos!</h1>
+            <h1 class="fw-bolder">Bienvenidos a Nuestro <a href="http://127.0.0.1:8000/publicaciones/ver-publicaciones/"><strong>Blog</strong></a> de VideosJuegos!</h1>
             <p class="lead mb-0">Enterate sobre las ultimas novedades</p>
+        </div>
+    </div>
+    <div class="container">
+        <div>
+            <h2>¿Qué son los videojuegos?</h2>
+            <p>Según <a href="{% url 'publicaciones' %}"><strong>Wikipedia</strong></a>, Un videojuego o juego de video es un software o juego electrónico en el que uno o más jugadores interactúan por medio de un controlador, con un dispositivo electrónico que muestra imágenes de video. Este dispositivo, conocido genéricamente como «plataforma», puede ser una computadora, una máquina de arcade, una consola de videojuegos o un dispositivo portátil, como por ejemplo un teléfono móvil, teléfono inteligente, tableta o una consola de videojuegos portátil. La industria de los videojuegos es un sector en constante crecimiento y se ha convertido en una forma de entretenimiento muy popular a nivel mundial.</p>
+            
+            <h2>Géneros</h2>
+            <p>Los videojuegos se pueden clasificar en géneros atendiendo a factores como el sistema de juego, el tipo de interactividad con el jugador, sus objetivos, etc. La evolución de los videojuegos desde sus comienzos ha dado lugar a una variedad creciente y cambiante de géneros, muchas veces en relación con lo que los avances en la tecnología han ido haciendo posible. Entre los géneros de videojuegos más populares están los de acción, estrategia, rol, aventura, rompecabezas, simulación, deportes o carreras, cada uno de ellos con varios subgéneros. Por otro lado, hoy en día son habituales los videojuegos que toman elementos de más de un género, lo que ha dado lugar a géneros mixtos (por ejemplo rol-acción, aventura-acción, etc.).</p>
+
+            <h3>Proyecto Final de la Etapa 2 Informatorio 2023 B </h3>
+            <p>Para este proyecto final, se nos encomendó hacer un blog con todas las funcionalidades básicas para su funcionamiento. Creación de usuarios con diferentes permisos(Visitante, Colaborador, SS). Poder VER, CREAR, EDITAR y ELIMINAR publicaciones de la página. Poder hacer comentarios, editarlos y eliminarlos. Como grupo, nos organizamos rápidamente y nos pusimos a trabajar. Este es el resultado de ese trabajo.
+            </p>
+
+            <h5>Equipo de colaboradores</h5>
+            <p>
+                <li>De Bonis Medina, Bruno Mario Elias</li>
+                <li>Lopez, Claudio Adrian</li>
+                <li>Prieto, Blas Manuel</li>
+                <li>Rey, Gabriel Manuel Alejandro</li>
+            </p>
+
+            <h6>Profesor y Mentores</h6>
+            <li>Tomas</li>
+            <li>Leandro y Zoe</li>
+            <p></p>
         </div>
     </div>
 {% endblock contenido %}
