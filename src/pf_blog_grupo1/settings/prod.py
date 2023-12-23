@@ -13,7 +13,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'rgabi1219$blog_db',
         'USER': 'rgabi1219',
-        'PASSWORD': 'Gabi+1995',
+        'PASSWORD': 'Base+2023',
         'HOST': 'rgabi1219.mysql.pythonanywhere-services.com',
         'PORT': '3306'
     }
