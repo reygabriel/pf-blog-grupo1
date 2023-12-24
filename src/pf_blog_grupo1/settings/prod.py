@@ -11,10 +11,10 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'rgabi1219$blog_db',
-        'USER': 'rgabi1219',
-        'PASSWORD': 'Base+2023',
-        'HOST': 'rgabi1219.mysql.pythonanywhere-services.com',
-        'PORT': '3306'
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': ''
     }
 }
