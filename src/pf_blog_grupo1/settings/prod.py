@@ -5,18 +5,16 @@ DEBUG = False
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-ALLOWED_HOSTS = ['inf0bl0g.pythonanywhere.com'],
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'inf0bl0g$blog_db',
-        'USER': 'inf0bl0g',
-        'PASSWORD': 'ongamolrac',
-        'HOST': 'inf0bl0g.mysql.pythonanywhere-services.com',
+        'NAME': 'reygabriel95$blog_db',
+        'USER': 'reygabriel95',
+        'PASSWORD': 'Gabi1995',
+        'HOST': 'reygabriel95.mysql.pythonanywhere-services.com',
         'PORT': '3306',
     }
 }
