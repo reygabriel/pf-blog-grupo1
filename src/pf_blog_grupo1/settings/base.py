@@ -9,8 +9,6 @@ AUTH_USER_MODEL = 'usuarios.Usuario'
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-!#*w+$yy-)3q7yn65eaex@ul#ikmy$6=sjau6$n@dvwzp&aoh3'
 
-ALLOWED_HOSTS = ['inf0bl0g.pythonanywhere.com']
-
 
 # Variables relacionadas al login
 LOGIN_URL = '/usuarios/login/'
