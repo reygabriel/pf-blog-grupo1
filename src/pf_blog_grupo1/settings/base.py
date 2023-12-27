@@ -82,7 +82,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es-ar'
 
-TIME_ZONE = 'America/Argentina/BuenosAires'
+TIME_ZONE = 'UTC-3'
 
 USE_I18N = True
 
