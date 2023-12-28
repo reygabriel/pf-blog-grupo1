@@ -8,14 +8,14 @@
     <div class="container">
         <div class="text-center my-5">
             <img src="{% static 'images/InfoBlog.jpeg'%}" alt="" width="800" >
-            <h1 class="fw-bolder">Bienvenidos a Nuestro <a href="http://inf0bl0g.pythonanywhere.com/publicaciones/ver-publicaciones/"><strong>Blog</strong></a> de VideosJuegos!</h1>
+            <h1 class="fw-bolder">Bienvenidos a Nuestro <a href="{% url 'publicaciones' %}"><strong>Blog</strong></a> de VideosJuegos!</h1>
             <p class="lead mb-0">Enterate sobre las ultimas novedades</p>
         </div>
     </div>
     <div class="container">
         <div>
             <h2>¿Qué son los videojuegos?</h2>
-            <p>Según <a href="{% url 'publicaciones' %}"><strong>Wikipedia</strong></a>, Un videojuego o juego de video es un software o juego electrónico en el que uno o más jugadores interactúan por medio de un controlador, con un dispositivo electrónico que muestra imágenes de video. Este dispositivo, conocido genéricamente como «plataforma», puede ser una computadora, una máquina de arcade, una consola de videojuegos o un dispositivo portátil, como por ejemplo un teléfono móvil, teléfono inteligente, tableta o una consola de videojuegos portátil. La industria de los videojuegos es un sector en constante crecimiento y se ha convertido en una forma de entretenimiento muy popular a nivel mundial.</p>
+            <p>Según <a href="https://es.wikipedia.org/wiki/Videojuego"><strong>Wikipedia</strong></a>, Un videojuego o juego de video es un software o juego electrónico en el que uno o más jugadores interactúan por medio de un controlador, con un dispositivo electrónico que muestra imágenes de video. Este dispositivo, conocido genéricamente como «plataforma», puede ser una computadora, una máquina de arcade, una consola de videojuegos o un dispositivo portátil, como por ejemplo un teléfono móvil, teléfono inteligente, tableta o una consola de videojuegos portátil. La industria de los videojuegos es un sector en constante crecimiento y se ha convertido en una forma de entretenimiento muy popular a nivel mundial.</p>
             
             <h2>Géneros</h2>
             <p>Los videojuegos se pueden clasificar en géneros atendiendo a factores como el sistema de juego, el tipo de interactividad con el jugador, sus objetivos, etc. La evolución de los videojuegos desde sus comienzos ha dado lugar a una variedad creciente y cambiante de géneros, muchas veces en relación con lo que los avances en la tecnología han ido haciendo posible. Entre los géneros de videojuegos más populares están los de acción, estrategia, rol, aventura, rompecabezas, simulación, deportes o carreras, cada uno de ellos con varios subgéneros. Por otro lado, hoy en día son habituales los videojuegos que toman elementos de más de un género, lo que ha dado lugar a géneros mixtos (por ejemplo rol-acción, aventura-acción, etc.).</p>
