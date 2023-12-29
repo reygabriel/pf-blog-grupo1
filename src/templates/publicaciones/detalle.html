@@ -23,13 +23,18 @@
       </div>
     </div>
   </div>
-
+  
+  {% if user.is_authenticated %}
   <form method="post"> {% csrf_token %}
     {{form}}
     
     <button class="btn btn-primary" type="submit">Comentar</button>
 
   </form>
+  {% else %}
+    Para comentar debes <a href="{% url 'login' %}">iniciar sesión</a>
+  {% endif %}
+    
   <!--Caja de comentarios-->
   <div class="card" style="width:100%; padding: 10px;">
     <div class="card-header">
